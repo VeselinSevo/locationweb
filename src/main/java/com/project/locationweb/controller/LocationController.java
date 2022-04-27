@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 
-
 @Controller
 public class LocationController {
     @Autowired
@@ -42,7 +41,6 @@ public class LocationController {
         Location deletedLocation = service.getLocationById(id);
         service.deleteLocation(deletedLocation);
         return new RedirectView("/locationweb/display-locations");
-
     }
 
     @RequestMapping("/edit-location")
@@ -66,16 +64,39 @@ public class LocationController {
     }
     @RequestMapping("/search-location-by-country") // also sorts by country
     public String searchLocationByCountry(@RequestParam("country") String country, @RequestParam(name = "sort", required = false) Boolean sort, ModelMap modelMap) throws Exception {
-        List<Location> searchedLocations = service.getLocationsByName(country, sort);
+        List<Location> searchedLocations = service.getLocationsByCountry(country, sort);
         modelMap.addAttribute("locations", searchedLocations);
         return "displayLocations";
     }
 
     @RequestMapping("/sort-location-by-id")
     public String sortById(ModelMap modelMap) throws Exception {
-
         List<Location> sortedByIdLocations = service.sortLocationById();
         modelMap.addAttribute("locations", sortedByIdLocations);
+        return "displayLocations";
+    }
+    @RequestMapping("/sort-location-by-name")
+    public String sortByName(ModelMap modelMap) throws Exception {
+        List<Location> sortedByNameLocations = service.sortLocationByName();
+        modelMap.addAttribute("locations", sortedByNameLocations);
+        return "displayLocations";
+    }
+    @RequestMapping("/sort-location-by-country")
+    public String sortByCountry(ModelMap modelMap) throws Exception {
+        List<Location> sortedByCountryLocations = service.sortLocationByCountry();
+        modelMap.addAttribute("locations", sortedByCountryLocations);
+        return "displayLocations";
+    }
+    @RequestMapping("/sort-location-by-postNumber")
+    public String sortByPostNumber(ModelMap modelMap) throws Exception {
+        List<Location> sortedByPostNumberLocations = service.sortLocationByPostNumber();
+        modelMap.addAttribute("locations", sortedByPostNumberLocations);
+        return "displayLocations";
+    }
+    @RequestMapping("/sort-location-by-type")
+    public String sortByType(ModelMap modelMap) throws Exception {
+        List<Location> sortedByTypeLocations = service.sortLocationByType();
+        modelMap.addAttribute("locations", sortedByTypeLocations);
         return "displayLocations";
     }
 }

@@ -9,11 +9,11 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private int post_number;
-    @Column
     private String name;
     @Column
     private String country;
+    @Column
+    private int postNumber;
     @Column
     private String type;
 
@@ -21,7 +21,7 @@ public class Location {
     public String toString() {
         return "Location{" +
                 "id=" + id +
-                ", post_number=" + post_number +
+                ", postNumber=" + postNumber +
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 ", type='" + type + '\'' +
@@ -36,12 +36,12 @@ public class Location {
         this.id = id;
     }
 
-    public int getPost_number() {
-        return post_number;
+    public int getPostNumber() {
+        return postNumber;
     }
 
-    public void setPost_number(int post_number) {
-        this.post_number = post_number;
+    public void setPostNumber(int postNumber) {
+        this.postNumber = postNumber;
     }
 
     public String getName() {

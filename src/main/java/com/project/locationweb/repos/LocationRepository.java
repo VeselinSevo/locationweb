@@ -23,4 +23,15 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     @Query("SELECT location FROM Location location ORDER BY id")
     List<Location> findByOrderByIdAsc();
 
+    @Query("SELECT location FROM Location location ORDER BY name")
+    List<Location> findByOrderByNameAsc();
+
+    @Query("SELECT location FROM Location location ORDER BY country")
+    List<Location> findByOrderByCountryAsc();
+
+    @Query("SELECT location FROM Location location ORDER BY postNumber")
+    List<Location> findByOrderByPostNumberAsc();
+
+    @Query("SELECT location FROM Location location ORDER BY type")
+    List<Location> findByOrderByTypeAsc();
 }

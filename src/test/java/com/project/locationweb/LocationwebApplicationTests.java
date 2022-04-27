@@ -18,7 +18,7 @@ class LocationwebApplicationTests {
 //		Location location = new Location();
 //		location.setName("Indjija");
 //		location.setCountry("Srbija");
-//		location.setPost_number(15000);
+//		location.setPostNumber(15000);
 //		location.setType("Rural");
 //		locationRepository.save(location);
 //	}

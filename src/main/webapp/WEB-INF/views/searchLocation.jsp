@@ -25,7 +25,7 @@
             <core:forEach items="${locations}" var="location">
             <tr>
                <td>${location.id}</td>
-               <td>${location.post_number}</td>
+               <td>${location.postNumber}</td>
                <td>${location.name}</td>
                <td>${location.country}</td>
                <td>${location.type}</td>
