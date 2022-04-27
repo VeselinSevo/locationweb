@@ -2,6 +2,7 @@
 <html>
    <head>
       <title>Display Locations</title>
+      <link href="style.css" rel="stylesheet"/>
    </head>
 
 
@@ -9,21 +10,21 @@
    <body>
    <h1>Search Location</h1>
 
-         <form action = "search-location-by-name">
+         <form action = "/search-location-by-name">
              <pre>
              Search by Name: <input type = "text" name = "name" value="insert name here"><br/>
              <input type = "hidden" name = "sort" value = "true">
              <input type = "submit" value = "Search"><br/>
              </pre>
              </form>
-         <form action = "search-location-by-country">
+         <form action = "/search-location-by-country">
               <pre>
               Search by Name: <input type = "text" name = "country" value="insert country here"><br/>
               <input type = "hidden" name = "sort" value = "true">
               <input type = "submit" value = "Search"><br/>
               </pre>
               </form>
-         <form action = "display-locations">
+         <form action = "/display-locations">
               <pre>
               <input type = "submit" value = "Go Back To All Locations"><br/>
               </pre>
@@ -32,17 +33,17 @@
       <h1>Locations:</h1>
       <table>
       <tr>
-          <th><button type="button" onclick="/sort-location-by-id">Sort</button></th>
-          <th><button type="button" onclick="/sort-location-by-postNumber">Sort</button></th>
-          <th><button type="button" onclick="/sort-location-by-name">Sort</button></th>
-          <th><button type="button" onclick="/sort-location-by-country">Sort</button></th>
-          <th><button type="button" onclick="/sort-location-by-type">Sort</button></th>
+          <th><button type="button" onclick="location.href='/sort-location-by-id'">Sort</button></th>
+          <th><button type="button" onclick="location.href='/sort-location-by-name'">Sort</button></th>
+          <th><button type="button" onclick="location.href='/sort-location-by-country'">Sort</button></th>
+          <th><button type="button" onclick="location.href='/sort-location-by-postNumber'">Sort</button></th>
+          <th><button type="button" onclick="location.href='/sort-location-by-type'">Sort</button></th>
       </tr>
       <tr>
          <th>Id</th>
-         <th>Post Number</th>
          <th>Name</th>
          <th>Country</th>
+         <th>Post Number</th>
          <th>Type</th>
       </tr>
 
@@ -53,8 +54,8 @@
             <td>${location.country}</td>
             <td>${location.postNumber}</td>
             <td>${location.type}</td>
-            <td><a href="delete-location?id=${location.id}">delete</a></td>
-            <td><a href="edit-location?id=${location.id}">edit</a></td>
+            <td><a href="/delete-location?id=${location.id}">delete</a></td>
+            <td><a href="/edit-location?id=${location.id}">edit</a></td>
       </tr>
       </core:forEach>
       </table>

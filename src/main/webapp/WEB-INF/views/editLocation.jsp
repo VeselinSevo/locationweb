@@ -2,6 +2,7 @@
 <html>
    <head>
       <title>Create Location</title>
+      <link href="style.css" rel="stylesheet"/>
    </head>
 
    <body>
