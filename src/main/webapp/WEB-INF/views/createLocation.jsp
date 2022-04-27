@@ -5,6 +5,7 @@
 
    <body>
       <h1>Create Location</h1>
+
       <form action = "save-location" method = "post">
       <pre>
       Id: ${newLocationId}<br/>

@@ -5,7 +5,6 @@ import com.project.locationweb.repos.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -21,8 +20,6 @@ public class LocationServiceImpl implements LocationService {
 
     @Autowired
     private LocationRepository locationRepository;
-
-
 
     @Override
     public Location saveLocation(Location location) {
@@ -57,23 +54,11 @@ public class LocationServiceImpl implements LocationService {
     @Override
     public List<Location> getLocationsByName(String name, Boolean sort) {
         return !sort ? locationRepository.findByName(name) : locationRepository.findByNameSortByName(name);
-// -------------------------------------------------------------
-//        ArrayList<Location> locations = new ArrayList<Location>();
-//
-//        for (Location location : locationRepository.findAll()) {
-//            if (location.getName().equals(name)) {
-//                 locations.add(location);
-//            }
-//        }
-//        return locations;
-// -------------------------------------------------------------
-
     }
-
     @Override
     public List<Location> getLocationsByCountry(String country, Boolean sort) {
         return !sort ? locationRepository.findByCountry(country) : locationRepository.findByCountrySortByCountry(country);
-}
+    }
     @Override
     public List<Location> sortLocationById() {
         return locationRepository.findByOrderByIdAsc();
