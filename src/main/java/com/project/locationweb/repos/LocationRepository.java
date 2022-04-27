@@ -4,13 +4,9 @@ import com.project.locationweb.entities.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-
 import java.util.List;
 
 public interface LocationRepository extends JpaRepository<Location, Integer> {
-//    @Query("SELECT location FROM Location locations WHERE location.name LIKE :name%")
-//    List<Location> findByName(@Param("name") String ime);
 
     @Query("SELECT location FROM Location location WHERE location.country LIKE :name%")
     List<Location> findByName(@Param("name") String name);

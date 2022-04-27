@@ -22,20 +22,18 @@
                <th>Country</th>
                <th>Type</th>
             </tr>
-
             <core:forEach items="${locations}" var="location">
-               <tr>
-                  <td>${location.id}</td>
-                  <td>${location.post_number}</td>
-                  <td>${location.name}</td>
-                  <td>${location.country}</td>
-                  <td>${location.type}</td>
-                  <td><a href="delete-location?id=${location.id}">delete</a></td>
-                  <td><a href="edit-location?id=${location.id}">edit</a></td>
-               </tr>
+            <tr>
+               <td>${location.id}</td>
+               <td>${location.post_number}</td>
+               <td>${location.name}</td>
+               <td>${location.country}</td>
+               <td>${location.type}</td>
+               <td><a href="delete-location?id=${location.id}">delete</a></td>
+               <td><a href="edit-location?id=${location.id}">edit</a></td>
+            </tr>
             </core:forEach>
             </table>
             <a href="show-create">Add Record</a>
    </body>
-
 </html>

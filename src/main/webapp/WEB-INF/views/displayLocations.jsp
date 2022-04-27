@@ -32,10 +32,14 @@
       <h1>Locations:</h1>
       <table>
       <tr>
-         <th>
-         <button type="button" onclick="/sort-location-by-id">Sort</button>
-         Id
-         </th>
+          <th><button type="button" onclick="/sort-location-by-id">Sort</button></th>
+          <th><button type="button" onclick="/sort-location-by-post_number">Sort</button></th>
+          <th><button type="button" onclick="/sort-location-by-name">Sort</button></th>
+          <th><button type="button" onclick="/sort-location-by-country">Sort</button></th>
+          <th><button type="button" onclick="/sort-location-by-type">Sort</button></th>
+      </tr>
+      <tr>
+         <th>Id</th>
          <th>Post Number</th>
          <th>Name</th>
          <th>Country</th>
@@ -43,7 +47,7 @@
       </tr>
 
       <core:forEach items="${locations}" var="location">
-         <tr>
+      <tr>
             <td>${location.id}</td>
             <td>${location.post_number}</td>
             <td>${location.name}</td>
@@ -51,12 +55,11 @@
             <td>${location.type}</td>
             <td><a href="delete-location?id=${location.id}">delete</a></td>
             <td><a href="edit-location?id=${location.id}">edit</a></td>
-         </tr>
+      </tr>
       </core:forEach>
       </table>
 
       <a href="show-create">Add Record</a>
 
    </body>
-
 </html>
