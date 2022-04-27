@@ -40,7 +40,7 @@ public class LocationController {
     public RedirectView deleteLocation(@RequestParam("id") int id, ModelMap modelMap) throws Exception {
         Location deletedLocation = service.getLocationById(id);
         service.deleteLocation(deletedLocation);
-        return new RedirectView("/locationweb/display-locations");
+        return new RedirectView("/display-locations");
     }
 
     @RequestMapping("/edit-location")
@@ -53,7 +53,7 @@ public class LocationController {
     @RequestMapping("/update-location")
     public RedirectView updateLocation(@ModelAttribute() Location location, ModelMap modelMap) throws Exception {
         service.updateLocation(location);
-        return new RedirectView("/locationweb/display-locations");
+        return new RedirectView("/display-locations");
     }
 
     @RequestMapping("/search-location-by-name") // also sorts by name
