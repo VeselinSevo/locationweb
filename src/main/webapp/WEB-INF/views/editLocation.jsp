@@ -9,9 +9,9 @@
       <form action = "update-location" method = "post">
       <pre>
       Id: <input type = "text" name = "id" value="${location.id}" readonly="true"><br/>
-      Post Number: <input type = "text" name = "post_number" value="${location.post_number}"><br/>
       Name: <input type = "text" name = "name" value="${location.name}"><br/>
       Country: <input type = "text" name = "country" value="${location.country}"><br/>
+      Post Number: <input type = "text" name = "postNumber" value="${location.postNumber}"><br/>
       Type: Urban <input type = "checkbox" name = "type" value="URBAN" ${location.type=='URBAN'?'checked':''}><br/>
             Rural <input type = "checkbox" name = "type" value="RURAL" ${location.type=='RURAL'?'checked':''}><br/>
             <input type = "submit" value = "Create"><br/>

@@ -32,7 +32,7 @@ public class LocationServiceImpl implements LocationService {
         currentLocation.setName(newLocation.getName());
         currentLocation.setType(newLocation.getType());
         currentLocation.setCountry(newLocation.getCountry());
-        currentLocation.setPost_number(newLocation.getPost_number());
+        currentLocation.setPostNumber(newLocation.getPostNumber());
         return locationRepository.save(currentLocation);
     }
 
@@ -62,5 +62,21 @@ public class LocationServiceImpl implements LocationService {
     @Override
     public List<Location> sortLocationById() {
         return locationRepository.findByOrderByIdAsc();
+    }
+    @Override
+    public List<Location> sortLocationByName() {
+        return locationRepository.findByOrderByNameAsc();
+    }
+    @Override
+    public List<Location> sortLocationByCountry() {
+        return locationRepository.findByOrderByCountryAsc();
+    }
+    @Override
+    public List<Location> sortLocationByPostNumber() {
+        return locationRepository.findByOrderByPostNumberAsc();
+    }
+    @Override
+    public List<Location> sortLocationByType() {
+        return locationRepository.findByOrderByTypeAsc();
     }
 }
