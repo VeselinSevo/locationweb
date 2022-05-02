@@ -61,22 +61,27 @@ public class LocationServiceImpl implements LocationService {
     }
     @Override
     public List<Location> sortLocationById() {
-        return locationRepository.findByOrderByIdAsc();
+        return locationRepository.orderByIdAsc();
     }
     @Override
     public List<Location> sortLocationByName() {
-        return locationRepository.findByOrderByNameAsc();
+        return locationRepository.orderByNameAsc();
     }
     @Override
     public List<Location> sortLocationByCountry() {
-        return locationRepository.findByOrderByCountryAsc();
+        return locationRepository.orderByCountryAsc();
     }
     @Override
     public List<Location> sortLocationByPostNumber() {
-        return locationRepository.findByOrderByPostNumberAsc();
+        return locationRepository.orderByPostNumberAsc();
     }
     @Override
     public List<Location> sortLocationByType() {
-        return locationRepository.findByOrderByTypeAsc();
+        return locationRepository.orderByTypeAsc();
+    }
+
+    @Override
+    public List<Object[]> findTypeAndTypeCount() {
+        return locationRepository.findTypeAndTypeCount();
     }
 }

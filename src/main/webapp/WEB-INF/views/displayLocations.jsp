@@ -5,8 +5,6 @@
       <link href="style.css" rel="stylesheet"/>
    </head>
 
-
-
    <body>
    <h1>Search Location</h1>
 
@@ -19,7 +17,7 @@
              </form>
          <form action = "/search-location-by-country">
               <pre>
-              Search by Name: <input type = "text" name = "country" value="insert country here"><br/>
+              Search by Country: <input type = "text" name = "country" value="insert country here"><br/>
               <input type = "hidden" name = "sort" value = "true">
               <input type = "submit" value = "Search"><br/>
               </pre>
@@ -33,11 +31,11 @@
       <h1>Locations:</h1>
       <table>
       <tr>
-          <th><button type="button" onclick="location.href='/sort-location-by-id'">Sort</button></th>
-          <th><button type="button" onclick="location.href='/sort-location-by-name'">Sort</button></th>
-          <th><button type="button" onclick="location.href='/sort-location-by-country'">Sort</button></th>
-          <th><button type="button" onclick="location.href='/sort-location-by-postNumber'">Sort</button></th>
-          <th><button type="button" onclick="location.href='/sort-location-by-type'">Sort</button></th>
+          <th><button class="btn" type="button" onclick="location.href='/sort-location-by-id'">Sort</button></th>
+          <th><button class="btn" type="button" onclick="location.href='/sort-location-by-name'">Sort</button></th>
+          <th><button class="btn" type="button" onclick="location.href='/sort-location-by-country'">Sort</button></th>
+          <th><button class="btn" type="button" onclick="location.href='/sort-location-by-postNumber'">Sort</button></th>
+          <th><button class="btn" type="button" onclick="location.href='/sort-location-by-type'">Sort</button></th>
       </tr>
       <tr>
          <th>Id</th>
@@ -60,7 +58,8 @@
       </core:forEach>
       </table>
 
-      <a href="show-create">Add Record</a>
+      <a href="show-create">Add Record</a><br/>
+      <button type="button" onclick="location.href='/generate-report'">View Chart</button>
 
    </body>
 </html>

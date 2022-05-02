@@ -27,4 +27,6 @@ public interface LocationService {
    List<Location> sortLocationByPostNumber();
 
    List<Location> sortLocationByType();
+
+   List<Object[]> findTypeAndTypeCount();
 }
