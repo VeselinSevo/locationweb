@@ -2,17 +2,27 @@ package com.project.locationweb.controller;
 
 import com.project.locationweb.entities.Location;
 import com.project.locationweb.services.LocationService;
+import com.project.locationweb.util.EmailUtil;
+import com.project.locationweb.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @Controller
 public class LocationController {
     @Autowired
     LocationService service;
+    @Autowired
+    EmailUtil emailUtil;
+    @Autowired
+    ReportUtil reportUtil;
+    @Autowired
+    ServletContext sc;
 
     @GetMapping("/show-create")
     public String showCreate() {
@@ -20,12 +30,14 @@ public class LocationController {
     }
 
     @PostMapping("/save-location")
-    public String saveLocation(@ModelAttribute() Location location, ModelMap modelMap) {
+    public String saveLocation(@ModelAttribute() Location location, @RequestParam("email") String email, ModelMap modelMap) {
         Location locationSaved = service.saveLocation(location);
         String msg = "Location saved with id: " + locationSaved.getId();
         int id = locationSaved.getId();
         modelMap.addAttribute("msg", msg);
         modelMap.addAttribute("newLocationId", id);
+        emailUtil.sendEmailString(email,"Location Saved",
+                "Location Saved Successfully with id: " + locationSaved.getId());
         return "createLocation";
     }
 
@@ -99,6 +111,14 @@ public class LocationController {
         modelMap.addAttribute("locations", sortedByTypeLocations);
         return "displayLocations";
     }
+    @RequestMapping("/generate-report")
+    public String generateReport(ModelMap modelMap) throws Exception {
+        String path = sc.getRealPath("/");
+        List<Object[]> data = service.findTypeAndTypeCount();
+        reportUtil.generatePieChart(path, data);
+        return "generateReport";
+    }
+
 }
 
 

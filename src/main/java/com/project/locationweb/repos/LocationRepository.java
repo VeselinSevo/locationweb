@@ -21,17 +21,22 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     List<Location> findByCountrySortByCountry(@Param("country") String country);
 
     @Query("SELECT location FROM Location location ORDER BY id")
-    List<Location> findByOrderByIdAsc();
+    List<Location> orderByIdAsc();
 
     @Query("SELECT location FROM Location location ORDER BY name")
-    List<Location> findByOrderByNameAsc();
+    List<Location> orderByNameAsc();
 
     @Query("SELECT location FROM Location location ORDER BY country")
-    List<Location> findByOrderByCountryAsc();
+    List<Location> orderByCountryAsc();
 
     @Query("SELECT location FROM Location location ORDER BY postNumber")
-    List<Location> findByOrderByPostNumberAsc();
+    List<Location> orderByPostNumberAsc();
 
     @Query("SELECT location FROM Location location ORDER BY type")
-    List<Location> findByOrderByTypeAsc();
+    List<Location> orderByTypeAsc();
+
+    @Query("SELECT type, count(type) FROM Location location GROUP BY type")
+    List<Object[]> findTypeAndTypeCount();
+
+
 }
