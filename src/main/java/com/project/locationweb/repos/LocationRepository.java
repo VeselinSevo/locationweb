@@ -12,7 +12,7 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     List<Location> findByName(@Param("name") String name);
 
     @Query("SELECT location FROM Location location WHERE location.country LIKE :country%")
-    List<Location> findByCountry(@Param("country")String country);
+    List<Location> findByCountry(@Param("country") String country);
 
     @Query("SELECT location FROM Location location WHERE location.name LIKE :name% ORDER BY name")
     List<Location> findByNameSortByName(@Param("name") String ime);
@@ -37,6 +37,4 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
 
     @Query("SELECT type, count(type) FROM Location location GROUP BY type")
     List<Object[]> findTypeAndTypeCount();
-
-
 }

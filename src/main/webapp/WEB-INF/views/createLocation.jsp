@@ -15,7 +15,7 @@
       Post Number: <input type = class ="form__input" "text" name = "postNumber" placeholder=Post Number><br/>
       Type: Urban <input type = "checkbox" name = "type" value="URBAN"><br/>
             Rural <input type = "checkbox" name = "type" value="RURAL"><br/>
-      Email: <input type = "text" class ="form__input" name = "email" placeholder="Email"><br/>
+      Email: <input type = "text" class ="form__input" name = "email" placeholder="Email" required="false"><br/>
             <input type = "submit" value = "Create"><br/>
 
       </pre>

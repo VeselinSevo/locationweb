@@ -28,17 +28,15 @@ class LocationwebApplicationTests {
 //		location.setName("Novi Sad");
 //		locationRepository.save(location);
 //	}
-//
 //	@Test
 //	public void testFindLocationById() {
 //		Location location = locationRepository.findById(2).get();
 //		System.out.println(location);
 //	}
-//
 //	@Test
 //	public void testDeleteLocation() {
 //		locationRepository.deleteById(6);
-//
+//  }
 //	@Test
 //	public void testDisplayLocation() {
 //		for (Location location : locationRepository.findAll()) {
