@@ -9,20 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
-import javax.servlet.ServletContext;
 import java.util.List;
 
 @Controller
 public class LocationController {
     @Autowired
     LocationService service;
-    @Autowired
-    EmailUtil emailUtil;
-    @Autowired
-    ReportUtil reportUtil;
-    @Autowired
-    ServletContext sc;
 
     @GetMapping("/show-create")
     public String showCreate() {
@@ -36,8 +28,7 @@ public class LocationController {
         int id = locationSaved.getId();
         modelMap.addAttribute("msg", msg);
         modelMap.addAttribute("newLocationId", id);
-        emailUtil.sendEmailString(email,"Location Saved",
-                "Location Saved Successfully with id: " + locationSaved.getId());
+        service.sendEmail(email, "Location Saved", msg);
         return "createLocation";
     }
 
@@ -113,12 +104,9 @@ public class LocationController {
     }
     @RequestMapping("/generate-report")
     public String generateReport(ModelMap modelMap) throws Exception {
-        String path = sc.getRealPath("/");
-        List<Object[]> data = service.findTypeAndTypeCount();
-        reportUtil.generatePieChart(path, data);
+        service.generateReport();
         return "generateReport";
     }
-
 }
 
 

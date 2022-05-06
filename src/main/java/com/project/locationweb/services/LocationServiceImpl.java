@@ -2,9 +2,13 @@ package com.project.locationweb.services;
 
 import com.project.locationweb.entities.Location;
 import com.project.locationweb.repos.LocationRepository;
+import com.project.locationweb.util.EmailUtil;
+import com.project.locationweb.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @Service
@@ -20,6 +24,13 @@ public class LocationServiceImpl implements LocationService {
 
     @Autowired
     private LocationRepository locationRepository;
+    @Autowired
+    private EmailUtil emailUtil;
+    @Autowired
+    private ReportUtil reportUtil;
+    @Autowired
+    ServletContext sc;
+
 
     @Override
     public Location saveLocation(Location location) {
@@ -83,5 +94,16 @@ public class LocationServiceImpl implements LocationService {
     @Override
     public List<Object[]> findTypeAndTypeCount() {
         return locationRepository.findTypeAndTypeCount();
+    }
+    @Override
+    public void sendEmail(String email, String title, String content) {
+        emailUtil.sendEmailString(email, title, content);
+    }
+
+    @Override
+    public void generateReport() {
+        String path = sc.getRealPath("/");
+        List<Object[]> data = findTypeAndTypeCount();
+        reportUtil.generatePieChart(path, data);
     }
 }

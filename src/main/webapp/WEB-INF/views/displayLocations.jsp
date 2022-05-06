@@ -37,8 +37,8 @@
           <th><button class="btn" type="button" onclick="location.href='/sort-location-by-postNumber'">Sort</button></th>
           <th><button class="btn" type="button" onclick="location.href='/sort-location-by-type'">Sort</button></th>
       </tr>
-      <tr>
-         <th>Id</th>
+     <tr>
+         <th>Id< /th>
          <th>Name</th>
          <th>Country</th>
          <th>Post Number</th>

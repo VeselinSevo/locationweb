@@ -29,4 +29,8 @@ public interface LocationService {
    List<Location> sortLocationByType();
 
    List<Object[]> findTypeAndTypeCount();
+
+   void sendEmail(String email, String title, String content);
+
+   void generateReport();
 }
