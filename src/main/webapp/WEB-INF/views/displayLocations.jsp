@@ -10,14 +10,14 @@
 
          <form action = "/search-location-by-name">
              <pre>
-             Search by Name: <input type = "text" name = "name" value="insert name here"><br/>
+             Search by Name: <input type = "text" name = "name" placeholder="insert name here"><br/>
              <input type = "hidden" name = "sort" value = "true">
-             <input type = "submit" value = "Search"><br/>
+             <input type = "submit" value = "Search" id = "submitId"><br/>
              </pre>
              </form>
          <form action = "/search-location-by-country">
               <pre>
-              Search by Country: <input type = "text" name = "country" value="insert country here"><br/>
+              Search by Country: <input type = "text" name = "country" placeholder="insert country here"><br/>
               <input type = "hidden" name = "sort" value = "true">
               <input type = "submit" value = "Search"><br/>
               </pre>
@@ -38,7 +38,7 @@
           <th><button class="btn" type="button" onclick="location.href='/sort-location-by-type'">Sort</button></th>
       </tr>
      <tr>
-         <th>Id< /th>
+         <th>Id</th>
          <th>Name</th>
          <th>Country</th>
          <th>Post Number</th>

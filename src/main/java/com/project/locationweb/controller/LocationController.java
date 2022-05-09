@@ -2,8 +2,6 @@ package com.project.locationweb.controller;
 
 import com.project.locationweb.entities.Location;
 import com.project.locationweb.services.LocationService;
-import com.project.locationweb.util.EmailUtil;
-import com.project.locationweb.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
